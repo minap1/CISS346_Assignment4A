@@ -33,8 +33,7 @@ Programming Interface).
 <h1><Strong>Group Project Roles</Strong></h1>
 
 
-This is a group assignment. There should be 2-3 members on each team. Your task
-is to assign the following roles to the team members.
+Assign the following roles to the team members.
 
 
 Project Manager
