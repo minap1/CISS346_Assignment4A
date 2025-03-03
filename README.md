@@ -35,14 +35,24 @@ Group Project Roles
 
 This is a group assignment. There should be 2-3 members on each team. Your task
 is to assign the following roles to the team members.
+
+
 • Project Manager
 • Software Development Engineer
 • Software Test Engineer
+
+
 A Team Member Roles document is located in Canvas->-Files->Assignments. Please
 complete the document and email it to me.
+
+
 NOTE: A team member can assume multiple roles, or the team members can share
 the roles.
+
+
 Software Project Proposal & Software Project Plan
+
+
 The typical software development lifecycle begins with a Software Project Proposal.
 During this phase, the concepts of the software system are first discussed and
 formalized into a definable system. From the Software Project Proposal, the
