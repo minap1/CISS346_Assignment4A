@@ -29,6 +29,8 @@ Programming Interface). The SMP Message Consumer client program is designed to
 retrieve messages from a server using TCP/IP and the Sockets API (Application
 Programming Interface).
 
+\n
+/n
 Group Project Roles
 This is a group assignment. There should be 2-3 members on each team. Your task
 is to assign the following roles to the team members.
