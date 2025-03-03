@@ -37,7 +37,7 @@ This is a group assignment. There should be 2-3 members on each team. Your task
 is to assign the following roles to the team members.
 
 
-• Project Manager
+Project Manager
 • Software Development Engineer
 • Software Test Engineer
 
