@@ -1,0 +1,19 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "SmpServer\\SmpServer.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "SmpClientProducer\\SmpClientProducer.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "SmpClientConsumer\\SmpClientConsumer.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

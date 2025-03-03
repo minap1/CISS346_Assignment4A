@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmpServer", "SmpServer\SmpServer.csproj", "{2CB9882F-109C-4436-9DDC-C7DF80CED80B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmpClientProducer", "SmpClientProducer\SmpClientProducer.csproj", "{B81466BB-C9D3-4FC9-9F0D-7726B21D01CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmpClientConsumer", "SmpClientConsumer\SmpClientConsumer.csproj", "{1FA970EA-C13F-4FE7-AD3F-8CE7ED2D24CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmpLibrary", "SmpLibrary\SmpLibrary.csproj", "{0F2B03FB-DFB7-4B6D-9391-C38A61F55160}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2CB9882F-109C-4436-9DDC-C7DF80CED80B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CB9882F-109C-4436-9DDC-C7DF80CED80B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CB9882F-109C-4436-9DDC-C7DF80CED80B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CB9882F-109C-4436-9DDC-C7DF80CED80B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B81466BB-C9D3-4FC9-9F0D-7726B21D01CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B81466BB-C9D3-4FC9-9F0D-7726B21D01CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B81466BB-C9D3-4FC9-9F0D-7726B21D01CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B81466BB-C9D3-4FC9-9F0D-7726B21D01CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FA970EA-C13F-4FE7-AD3F-8CE7ED2D24CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FA970EA-C13F-4FE7-AD3F-8CE7ED2D24CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FA970EA-C13F-4FE7-AD3F-8CE7ED2D24CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FA970EA-C13F-4FE7-AD3F-8CE7ED2D24CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F2B03FB-DFB7-4B6D-9391-C38A61F55160}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F2B03FB-DFB7-4B6D-9391-C38A61F55160}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F2B03FB-DFB7-4B6D-9391-C38A61F55160}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F2B03FB-DFB7-4B6D-9391-C38A61F55160}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
