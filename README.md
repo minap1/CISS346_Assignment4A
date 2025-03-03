@@ -9,7 +9,7 @@ development process, the software development process lifecycle, and common
 software development process documents.
 
 
-<Strong>Project Description</Strong>
+<h1><Strong>Project Description</Strong></h1>
 
 
 Miss Pudding, the VP of Engineering for Reality Software, has contracted with Never
