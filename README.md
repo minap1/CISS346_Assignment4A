@@ -57,50 +57,100 @@ The typical software development lifecycle begins with a Software Project Propos
 During this phase, the concepts of the software system are first discussed and
 formalized into a definable system. From the Software Project Proposal, the
 software project manager creates a Software Project Plan.
+
+
 Software Requirements Specification
+
+
 The team’s first task is to analyze the SMP Software Project Proposal and the SMP
 Software Project Plan. Based on the Software Project Proposal, a Software
 Requirements Specification is generally the next artifact that needs to be
 developed. The project manager along with various stakeholders has created the
 Software Requirements Specification document.
+
+
 Software Project Interface Prototype
+
+
 Based on the Software Requirement Specification, the project manager along with
 the project development team has defined a UI (User Interface) protype. Typically,
 the UI prototype can be defined as either a CLUI (Command-Line User Interface) or
 a GUI (Graphical User Interface). In this case, the team has decided to develop a
 GUI prototype.
+
+
 Software Technical Specification
+
+
 Based on the Software Requirement Specification and the Software Project Interface
 Prototype, a Software Technical Specification is the next artifact that needs to be
 developed. The project manager along with the project development team has
 defined the Software Requirements Specification document.
 Software Project Documents
+
+
 Deliverables
+
+
 For this iteration of the project, the project manager will direct the team to
 implement the software application according to the Software Requirements
 Specification, the Software Project Interface Prototypes, and the Software Technical
 Specification. The following Software Requirements Specification items should be
 implemented and tested:
+
+
 The project manager uploads all source code.
+
+
 • 2.1 SMP Server Requirements
+
+
 o 2.1.1 Requirement 1: Application Start
+
+
 o 2.1.2 Requirement 2: Show Messages
+
+
 o 2.1.3 Requirement 3: Write SMP PUT Message to File
+
+
 o 2.1.4 Requirement 4: Read SMP GET Message from File
+
+
 • 2.2 SMP Client Producer Requirements
+
+
 o 2.2.1 Requirement 1: Send Message
+
+
 • 2.3 SMP Client Consumer Requirements
+
+
 o 2.3.1 Requirement 1: Get Message
+
+
 • 06_SMP_Software_System_Test_Plan.docx
+
+
 o The test plan should be stored in a directory named Documents in the
 root of the source code directory.
+
+
 Each team member uploads the following documents:
+
 • Team_Member_Assessment_Form.docx
+
 • Team_Member_Statement_Of_Contribution.docx
+
+
 NOTE: For reference purposes, example source code examples and prototypes have
 been developed. The source code examples and prototypes are uploaded to
 Canvas->Files->SourceCode.
+
+
 Notes
+
+
 •
 Keep in mind that the focus of the course is on the Software Development
 Process and the supporting project documents. The focus is not on programming
