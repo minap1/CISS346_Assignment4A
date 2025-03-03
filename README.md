@@ -7,7 +7,11 @@ Messenger: Simple Message Protocol (SMP)
 This assignment is designed to give you help understanding the software
 development process, the software development process lifecycle, and common
 software development process documents.
-Project Description
+
+
+<Strong>Project Description<\Strong>
+
+
 Miss Pudding, the VP of Engineering for Reality Software, has contracted with Never
 Crash Software Services to develop a client-server application that communicates
 using a simple communications protocol. The communications protocol this project
