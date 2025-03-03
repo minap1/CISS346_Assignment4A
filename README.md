@@ -155,11 +155,17 @@ Notes
 Keep in mind that the focus of the course is on the Software Development
 Process and the supporting project documents. The focus is not on programming
 any particular application domain, in any particular programming language.
+
+
 • Developing the Software Project Plan and the Software Requirements
 Specification is an iterative process. If necessary, you’ll have a chance to update
 the document as the course progresses.
+
+
 • Typically, the application’s UI can be a command-line user interface (CUI), or a
 graphical user interface (GUI).
+
+
 • For this project, the software application implementation language can be either
 C# or Java. I’ll introduce the C# programming language, along with the Visual
 Studio IDE (Integrated Development Environment) that’s used to implement the
