@@ -2,7 +2,7 @@
 
 CISS 346 – Secure Software Development
 Assignment 04 – Part A
-Messenger: Simple Message Protocol (SMP)\
+Messenger: Simple Message Protocol (SMP)
 
 <h1><Strong>Project Description</Strong></h1>
 
