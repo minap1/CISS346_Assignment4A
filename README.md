@@ -34,7 +34,8 @@ retrieve messages from a server using TCP/IP and the Sockets API (Application
 Programming Interface).
 
 
-Group Project Roles
+
+<h1><Strong>Group Project Roles</Strong></h1>
 
 
 This is a group assignment. There should be 2-3 members on each team. Your task
@@ -54,7 +55,8 @@ NOTE: A team member can assume multiple roles, or the team members can share
 the roles.
 
 
-Software Project Proposal & Software Project Plan
+
+<h1><Strong>Software Project Proposal & Software Project Plan</Strong></h1>
 
 
 The typical software development lifecycle begins with a Software Project Proposal.
@@ -63,7 +65,8 @@ formalized into a definable system. From the Software Project Proposal, the
 software project manager creates a Software Project Plan.
 
 
-Software Requirements Specification
+
+<h1><Strong>Software Requirements Specification</Strong></h1>
 
 
 The team’s first task is to analyze the SMP Software Project Proposal and the SMP
@@ -73,7 +76,8 @@ developed. The project manager along with various stakeholders has created the
 Software Requirements Specification document.
 
 
-Software Project Interface Prototype
+
+<h1><Strong>Software Project Interface Prototype</Strong></h1>
 
 
 Based on the Software Requirement Specification, the project manager along with
@@ -83,7 +87,8 @@ a GUI (Graphical User Interface). In this case, the team has decided to develop 
 GUI prototype.
 
 
-Software Technical Specification
+
+<h1><Strong>Software Technical Specification</Strong></h1>
 
 
 Based on the Software Requirement Specification and the Software Project Interface
@@ -93,7 +98,8 @@ defined the Software Requirements Specification document.
 Software Project Documents
 
 
-Deliverables
+
+<h1><Strong>Deliverables</Strong></h1>
 
 
 For this iteration of the project, the project manager will direct the team to
@@ -103,7 +109,8 @@ Specification. The following Software Requirements Specification items should be
 implemented and tested:
 
 
-The project manager uploads all source code.
+
+<h2><Strong>The project manager uploads all source code.</Strong></h2>
 
 
 • 2.1 SMP Server Requirements
@@ -140,7 +147,8 @@ o The test plan should be stored in a directory named Documents in the
 root of the source code directory.
 
 
-Each team member uploads the following documents:
+
+<h2><Strong>Each team member uploads the following documents:</Strong></h2>
 
 • Team_Member_Assessment_Form.docx
 
@@ -152,7 +160,8 @@ been developed. The source code examples and prototypes are uploaded to
 Canvas->Files->SourceCode.
 
 
-Notes
+
+<h1><Strong>Notes</Strong></h1>
 
 
 •
