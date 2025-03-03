@@ -1,0 +1,6 @@
+C:\Code\SmpSolution\SmpLibrary\bin\Debug\SmpLibrary.dll
+C:\Code\SmpSolution\SmpLibrary\bin\Debug\SmpLibrary.pdb
+C:\Code\SmpSolution\SmpLibrary\obj\Debug\SmpLibrary.csproj.AssemblyReference.cache
+C:\Code\SmpSolution\SmpLibrary\obj\Debug\SmpLibrary.csproj.CoreCompileInputs.cache
+C:\Code\SmpSolution\SmpLibrary\obj\Debug\SmpLibrary.dll
+C:\Code\SmpSolution\SmpLibrary\obj\Debug\SmpLibrary.pdb

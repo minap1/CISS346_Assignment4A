@@ -1,0 +1,10 @@
+C:\Code\SmpSolution\SmpClientConsumer\bin\Debug\SmpClientConsumer.exe.config
+C:\Code\SmpSolution\SmpClientConsumer\bin\Debug\SmpClientConsumer.exe
+C:\Code\SmpSolution\SmpClientConsumer\bin\Debug\SmpClientConsumer.pdb
+C:\Code\SmpSolution\SmpClientConsumer\obj\Debug\SmpClientConsumer.csproj.AssemblyReference.cache
+C:\Code\SmpSolution\SmpClientConsumer\obj\Debug\SmpClientConsumer.Properties.Resources.resources
+C:\Code\SmpSolution\SmpClientConsumer\obj\Debug\SmpClientConsumer.csproj.GenerateResource.cache
+C:\Code\SmpSolution\SmpClientConsumer\obj\Debug\SmpClientConsumer.csproj.CoreCompileInputs.cache
+C:\Code\SmpSolution\SmpClientConsumer\obj\Debug\SmpClientConsumer.exe
+C:\Code\SmpSolution\SmpClientConsumer\obj\Debug\SmpClientConsumer.pdb
+C:\Code\SmpSolution\SmpClientConsumer\obj\Debug\SmpClientConsumer.FormSmpClientConsumer.resources
