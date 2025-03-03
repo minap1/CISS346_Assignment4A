@@ -62,21 +62,6 @@ Prototype, a Software Technical Specification is the next artifact that needs to
 developed. The project manager along with the project development team has
 defined the Software Requirements Specification document.
 Software Project Documents
-All software project documents can be found in Canvas->Files->Assignments.
-• 00_SMP_Software_Project_Proposal.docx
-• 01_SMP_Software_Project_Plan.docx
-• 02_SMP_Software_Requirements_Specification.docx
-• 03_SMP_Software_Project_Interface_Prototypes.docx
-• 04_SMP_Software_Technical_Specification.docx
-• 05_SMP_Software_Design_Specification.docx
-• 06_SMP_Software_System_Test_Plan.docx
-• 07_SMP_Software_Project_Information_File.docx
-Software Project Reference Documents
-Software development process reference documents can be found in Canvas->Files-
->References.
-• Software_Development_Process.docx
-• Software_Development_Process_Checklist.docx
-• Software_Project_Information_File_Template.docx
 Deliverables
 For this iteration of the project, the project manager will direct the team to
 implement the software application according to the Software Requirements
