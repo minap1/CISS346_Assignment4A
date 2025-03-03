@@ -2,12 +2,7 @@
 
 CISS 346 – Secure Software Development
 Assignment 04 – Part A
-Messenger: Simple Message Protocol (SMP)
-
-This assignment is designed to give you help understanding the software
-development process, the software development process lifecycle, and common
-software development process documents.
-
+Messenger: Simple Message Protocol (SMP)\
 
 <h1><Strong>Project Description</Strong></h1>
 
