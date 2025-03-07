@@ -46,7 +46,7 @@ public class ServerController {
         running = true;
     }
 
-    /* by far the hardest thing to do, get a stream from the server, pipe to textarea, have text are output live */
+    /* by far the hardest thing to do, get a stream from the server, pipe to textarea, have text output live */
     @FXML
     public void streamServerOutput() throws IOException {
         byte[] array;
