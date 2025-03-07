@@ -11,7 +11,6 @@ import java.io.IOException;
 public class ProducerApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
-
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/FXML/ProducerForm.fxml"));
         Scene s = new Scene(fxmlLoader.load());
         primaryStage.setTitle("Producer");
