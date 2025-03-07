@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="282.0" prefWidth="405.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ServerFXForm.ServerController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" prefHeight="22.0" prefWidth="88.0" text="      Server Port:" textAlignment="RIGHT" />
+      <Button layoutX="91.0" layoutY="47.0" mnemonicParsing="false" onAction="#onStartClicked" prefHeight="39.0" prefWidth="139.0" text="Start Server" />
+      <TextField fx:id="portnum" layoutX="102.0" layoutY="13.0" prefHeight="25.0" prefWidth="301.0" promptText="DEFAULT: 50444" />
+      <Label layoutX="2.0" layoutY="86.0" text="Server Output:" />
+      <Button layoutX="266.0" layoutY="47.0" mnemonicParsing="false" onAction="#onStopClicked" prefHeight="39.0" prefWidth="139.0" text="Stop Server" />
+      <TextArea editable="false" layoutX="2.0" layoutY="103.0" prefHeight="200.0" prefWidth="405.0" fx:id="sOutput"/>
+   </children>
+</AnchorPane>

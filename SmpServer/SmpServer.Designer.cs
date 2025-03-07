@@ -28,20 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
+            button1 = new Button();
+            SuspendLayout();
+            // 
+            // button1
+            // 
+            button1.Location = new Point(223, 17);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 0;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
             // 
             // FormSmpServer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "FormSmpServer";
-            this.Text = "SMP Server";
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(833, 598);
+            Controls.Add(button1);
+            Margin = new Padding(2, 2, 2, 2);
+            Name = "FormSmpServer";
+            Text = "SMP Server";
+            Load += FormSmpServer_Load;
+            ResumeLayout(false);
 
         }
 
         #endregion
+
+        private Button button1;
     }
 }
 

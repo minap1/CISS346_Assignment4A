@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ProducerFXForm.producerController">
+   <children>
+      <TextField layoutX="16.0" layoutY="167.0" prefHeight="209.0" prefWidth="346.0" />
+      <TextFlow layoutX="386.0" layoutY="172.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" />
+      <Button layoutX="319.0" layoutY="144.0" mnemonicParsing="false" text="Send" />
+      <Label layoutX="16.0" layoutY="148.0" prefHeight="17.0" prefWidth="115.0" text="Message input:" />
+      <Label layoutX="386.0" layoutY="148.0" prefHeight="17.0" prefWidth="97.0" text="Server response:" />
+      <TextField layoutX="151.0" layoutY="14.0" prefHeight="25.0" prefWidth="427.0" />
+      <TextField layoutX="151.0" layoutY="54.0" prefHeight="25.0" prefWidth="427.0" />
+      <Label layoutX="52.0" layoutY="18.0" prefHeight="17.0" prefWidth="97.0" text="   Server Address:" />
+      <Label layoutX="114.0" layoutY="58.0" prefHeight="17.0" prefWidth="28.0" text="Port:" />
+      <Label layoutX="43.0" layoutY="102.0" text="Clear input box after successful send?" />
+      <CheckBox layoutX="16.0" layoutY="102.0" mnemonicParsing="false" />
+      <RadioButton layoutX="16.0" layoutY="127.0" mnemonicParsing="false" text="Low Priority" />
+      <RadioButton layoutX="114.0" layoutY="127.0" mnemonicParsing="false" text="High Priority" />
+      <RadioButton layoutX="213.0" layoutY="127.0" mnemonicParsing="false" text="Urgent Priority" />
+   </children>
+</AnchorPane>

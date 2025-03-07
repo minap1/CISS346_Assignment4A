@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Zd1xQ84LNlA=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Eric\\Documents\\CISS346_Assignment4A\\CISS346_Assignment4A.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Eric\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.26100.57\\microsoft.windows.sdk.net.ref.10.0.26100.57.nupkg.sha512"
+  ],
+  "logs": []
+}

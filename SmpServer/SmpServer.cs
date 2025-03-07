@@ -16,5 +16,10 @@ namespace SmpServer
         {
             InitializeComponent();
         }
+
+        private void FormSmpServer_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
