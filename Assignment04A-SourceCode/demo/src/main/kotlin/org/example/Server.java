@@ -135,6 +135,7 @@ public class Server extends Thread {
             }
         }
 //write something too
+//a random change
         WRITEHERE.write("Server stopped! Exiting the process\n".getBytes());
         serverSocket.close();
     }
