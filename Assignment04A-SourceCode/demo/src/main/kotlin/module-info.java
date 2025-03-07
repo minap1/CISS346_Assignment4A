@@ -13,7 +13,15 @@ module org.example.demo {
     requires com.almasb.fxgl.all;
     requires java.desktop;
 
+    opens org.example.ProducerFXForm to javafx.fxml;
+    exports org.example.ProducerFXForm;
+
+    opens org.example.ConsumerFXForm to javafx.fxml;
+    exports org.example.ConsumerFXForm;
 
     opens org.example.ServerFXForm to javafx.fxml;
     exports org.example.ServerFXForm;
+
+    opens org.example.launchAll to javafx.fxml;
+    exports org.example.launchAll;
 }

@@ -2,14 +2,31 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 
-<AnchorPane prefHeight="282.0" prefWidth="405.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ServerFXForm.ServerController">
+<AnchorPane prefHeight="384.0" prefWidth="809.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ServerFXForm.ServerController">
    <children>
-      <Label layoutX="14.0" layoutY="14.0" prefHeight="22.0" prefWidth="88.0" text="      Server Port:" textAlignment="RIGHT" />
-      <Button layoutX="91.0" layoutY="47.0" mnemonicParsing="false" onAction="#onStartClicked" prefHeight="39.0" prefWidth="139.0" text="Start Server" />
-      <TextField fx:id="portnum" layoutX="102.0" layoutY="13.0" prefHeight="25.0" prefWidth="301.0" promptText="DEFAULT: 50444" />
-      <Label layoutX="2.0" layoutY="86.0" text="Server Output:" />
-      <Button layoutX="266.0" layoutY="47.0" mnemonicParsing="false" onAction="#onStopClicked" prefHeight="39.0" prefWidth="139.0" text="Stop Server" />
-      <TextArea editable="false" layoutX="2.0" layoutY="103.0" prefHeight="200.0" prefWidth="405.0" fx:id="sOutput"/>
+      <Label layoutX="15.0" layoutY="51.0" prefHeight="22.0" prefWidth="88.0" text="      Server Port:" textAlignment="RIGHT" />
+      <Button layoutX="103.0" layoutY="86.0" mnemonicParsing="false" onAction="#onStartClicked" prefHeight="39.0" prefWidth="139.0" text="Start Server" />
+      <TextField fx:id="portnum" layoutX="103.0" layoutY="49.0" prefHeight="25.0" prefWidth="301.0" promptText="DEFAULT: 50444" />
+      <Label layoutX="20.0" layoutY="137.0" text="Server Output:" />
+      <Button layoutX="264.0" layoutY="86.0" mnemonicParsing="false" onAction="#onStopClicked" prefHeight="39.0" prefWidth="139.0" text="Stop Server" />
+      <TextArea fx:id="sOutput" editable="false" layoutX="14.0" layoutY="154.0" prefHeight="236.0" prefWidth="392.0" />
+      <Label layoutX="15.0" layoutY="18.0" prefHeight="17.0" prefWidth="88.0" text="Server Address:" />
+      <TextField layoutX="103.0" layoutY="14.0" prefHeight="25.0" prefWidth="301.0" promptText="Default: localhost" />
+      <TextArea layoutX="418.0" layoutY="154.0" prefHeight="230.0" prefWidth="384.0" promptText="Retrieved messages will be displayed here" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="95.0" layoutX="423.0" layoutY="58.0" stroke="BLACK" strokeType="INSIDE" width="301.0" />
+      <RadioButton layoutX="435.0" layoutY="117.0" mnemonicParsing="false" text="All" />
+      <RadioButton layoutX="481.0" layoutY="117.0" mnemonicParsing="false" text="Low" />
+      <RadioButton layoutX="540.0" layoutY="117.0" mnemonicParsing="false" text="Medium" />
+      <RadioButton layoutX="610.0" layoutY="117.0" mnemonicParsing="false" text="High" />
+      <RadioButton layoutX="666.0" layoutY="117.0" mnemonicParsing="false" text="Latest" />
+      <Label layoutX="444.0" layoutY="10.0" text="Last message recieved:" />
+      <TextField layoutX="485.0" layoutY="27.0" prefHeight="17.0" prefWidth="121.0" />
+      <Label layoutX="456.0" layoutY="31.0" text="Type:" />
+      <Label layoutX="619.0" layoutY="31.0" text="Priority:" />
+      <TextField layoutX="666.0" layoutY="26.0" prefHeight="25.0" prefWidth="114.0" />
+      <Button layoutX="435.0" layoutY="67.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="164.0" text="Show Messages" />
+      <Button layoutX="624.0" layoutY="74.0" mnemonicParsing="false" text="Clear display" />
    </children>
 </AnchorPane>

@@ -2,7 +2,9 @@ package org.example;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import org.example.ProducerFXForm.ProducerApplication;
 import org.example.ServerFXForm.ServerApplication;
+import org.example.launchAll.allApplications;
 
 import java.io.IOException;
 
@@ -14,9 +16,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
         // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
-        ServerApplication.main(args);
-
+        allApplications.main(args);
     }
 }
 

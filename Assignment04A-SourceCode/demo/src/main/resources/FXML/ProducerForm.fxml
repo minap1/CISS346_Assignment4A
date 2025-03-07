@@ -2,24 +2,27 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ProducerFXForm.producerController">
+<AnchorPane prefHeight="208.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ProducerFXForm.producerController">
    <children>
-      <TextField layoutX="16.0" layoutY="167.0" prefHeight="209.0" prefWidth="346.0" />
-      <TextFlow layoutX="386.0" layoutY="172.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" />
-      <Button layoutX="319.0" layoutY="144.0" mnemonicParsing="false" text="Send" />
-      <Label layoutX="16.0" layoutY="148.0" prefHeight="17.0" prefWidth="115.0" text="Message input:" />
-      <Label layoutX="386.0" layoutY="148.0" prefHeight="17.0" prefWidth="97.0" text="Server response:" />
-      <TextField layoutX="151.0" layoutY="14.0" prefHeight="25.0" prefWidth="427.0" />
-      <TextField layoutX="151.0" layoutY="54.0" prefHeight="25.0" prefWidth="427.0" />
+      <Button layoutX="319.0" layoutY="162.0" mnemonicParsing="false" text="Send" />
+      <Label layoutX="15.0" layoutY="164.0" prefHeight="17.0" prefWidth="120.0" text="Message input:" />
+      <Label layoutX="383.0" layoutY="94.0" prefHeight="17.0" prefWidth="97.0" text="Server response:" />
+      <TextField layoutX="151.0" layoutY="14.0" prefHeight="25.0" prefWidth="427.0" promptText="DEFAULT: localhost" />
+      <TextField layoutX="151.0" layoutY="54.0" prefHeight="25.0" prefWidth="427.0" promptText="DEFAULT: 50444" />
       <Label layoutX="52.0" layoutY="18.0" prefHeight="17.0" prefWidth="97.0" text="   Server Address:" />
-      <Label layoutX="114.0" layoutY="58.0" prefHeight="17.0" prefWidth="28.0" text="Port:" />
-      <Label layoutX="43.0" layoutY="102.0" text="Clear input box after successful send?" />
-      <CheckBox layoutX="16.0" layoutY="102.0" mnemonicParsing="false" />
-      <RadioButton layoutX="16.0" layoutY="127.0" mnemonicParsing="false" text="Low Priority" />
-      <RadioButton layoutX="114.0" layoutY="127.0" mnemonicParsing="false" text="High Priority" />
-      <RadioButton layoutX="213.0" layoutY="127.0" mnemonicParsing="false" text="Urgent Priority" />
+      <Label layoutX="91.0" layoutY="58.0" prefHeight="17.0" prefWidth="60.0" text="       Port:" />
+      <Label layoutX="43.0" layoutY="85.0" text="Clear input box after successful send?" />
+      <CheckBox layoutX="18.0" layoutY="85.0" mnemonicParsing="false" />
+      <TextArea editable="false" layoutX="383.0" layoutY="119.0" prefHeight="287.0" prefWidth="200.0" />
+      <TextArea fx:id="input" layoutX="13.0" layoutY="187.0" prefHeight="213.0" prefWidth="350.0" promptText="Input message here" />
+      <Label layoutX="16.0" layoutY="110.0" prefHeight="17.0" prefWidth="97.0" text="Message Priority:" />
+      <RadioButton fx:id="rb1" layoutX="110.0" layoutY="110.0" mnemonicParsing="false" text="Low" />
+      <RadioButton fx:id="rb2" layoutX="159.0" layoutY="110.0" mnemonicParsing="false" text="Normal" />
+      <RadioButton fx:id="rb3" layoutX="231.0" layoutY="110.0" mnemonicParsing="false" text="High/Urgent" />
+      <Label layoutX="15.0" layoutY="140.0" prefHeight="17.0" prefWidth="60.0" text="File Select:" />
+      <TextField layoutX="79.0" layoutY="136.0" prefHeight="25.0" prefWidth="237.0" />
+      <Button layoutX="319.0" layoutY="136.0" mnemonicParsing="false" text="..." />
+      <Button layoutX="341.0" layoutY="136.0" mnemonicParsing="false" text="x" />
    </children>
 </AnchorPane>

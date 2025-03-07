@@ -44,7 +44,7 @@ public class ServerController {
         running = true;
     }
 
-    /* by far the hardest thing to do, get a stream from the server, pipe to textarea, have text output live */
+    /* by far the hardest thing to do, get a stream from the server, pipe to textarea, have text are output live */
     @FXML
     public void streamServerOutput(PipedInputStream readme) throws IOException {
         Thread thread = new Thread(() -> {
@@ -73,7 +73,7 @@ public class ServerController {
             server.stopThread();
             server.join();
         }else{
-            //TODO FIGURE OUT HOW TO PUT ERROR IN TEXTBOX
+            sOutput.appendText("No server running.\n");
         }
     }
 }
