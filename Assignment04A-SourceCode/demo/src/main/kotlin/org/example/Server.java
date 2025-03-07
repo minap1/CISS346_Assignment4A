@@ -7,26 +7,24 @@ import java.net.Socket;
 import java.net.SocketTimeoutException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
-import java.util.concurrent.Callable;
 
-public class Server extends Thread
-{
+public class Server extends Thread {
 
     private int port;
     private volatile boolean running = true;
     private PipedOutputStream WRITEHERE = null;
-    public Server(int port){
+
+    public Server(int port) {
         this.port = port;
     }
 
-    public Server(int port, PipedOutputStream p){
+    public Server(int port, PipedOutputStream p) {
         this.port = port;
         this.WRITEHERE = p;
     }
 
     @Override
     public void run() {
-
         try {
             startServer(port);
         } catch (Exception e) {
@@ -42,22 +40,22 @@ public class Server extends Thread
         this.port = port;
     }
 
-    private void startServer(int port) throws Exception
-    {
-        WRITEHERE.write(("Running server on port " + port + "...\n").getBytes());
+    private void startServer(int port) throws Exception {
+        WRITEHERE.write(("Attempting to server on port " + port + "...\n").getBytes());
 
         ServerSocket serverSocket = new ServerSocket(port, 0, InetAddress.getLoopbackAddress());
         serverSocket.setSoTimeout(1000);
         serverSocket.setReuseAddress(true);
+        WRITEHERE.write("Server creation successful!\n".getBytes());
         WRITEHERE.write("Waiting for the client connection...\n".getBytes());
-        while(running)
-        {
+
+        while (running) {
             try {
                 Socket clientSocket = serverSocket.accept();
                 InetAddress inetAddress = clientSocket.getInetAddress();
                 String hostAddress = inetAddress.getHostAddress();
 
-                System.out.println("Client connection received from " + hostAddress);
+                WRITEHERE.write(("Client connection received from " + hostAddress + "\n").getBytes());
 
                 InputStream inputStream = clientSocket.getInputStream();
                 InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
@@ -68,51 +66,52 @@ public class Server extends Thread
 
                 String documentName = bufferedReader.readLine();
 
-                System.out.println("Document name received: " + documentName);
+                WRITEHERE.write(("Document name received: " + documentName + "\n").getBytes());
 
                 String digitalSignaturePackage = createDigitalSignaturePackage(documentName);
 
-                System.out.println("Sending signed document...\n");
+                WRITEHERE.write("Sending signed document...\n".getBytes());
 
                 printWriter.print(digitalSignaturePackage);
 
                 printWriter.close();
                 bufferedReader.close();
                 clientSocket.close();
-            }catch (SocketTimeoutException _) {
+            } catch (SocketTimeoutException _) {
+                // Timeout is expected, continue running
+            } catch (FileNotFoundException e) {
+                WRITEHERE.write(("File not found...try checking your directories, aborting send\n").getBytes());
             }
-
         }
-        System.out.println("Server stopped");
-        //Unreachable code
+
+        WRITEHERE.write("Server stopped! Exiting the process\n".getBytes());
         serverSocket.close();
     }
 
-    private String createDigitalSignaturePackage(String documentName) throws Exception
-    {
+    private String createDigitalSignaturePackage(String documentName) throws Exception {
         final String COMPANY_NAME = "Never Crash Software Services";
         final String COMPANY_DOMAIN_NAME = "NCSS.com";
         final String COMPANY_EMAIL = "support@ncss.com";
         String publicKeyFilename = "public.key";
         String privateKeyFilename = "private.key";
 
-        //Read public key from file
+        // Read public key from file
         PublicKey publicKey = RsaEncryptor.readPublicKeyFromFile(publicKeyFilename);
-        
-        //Read private key from file
+
+        // Read private key from file
         PrivateKey privateKey = RsaEncryptor.readPrivateKeyFromFile(privateKeyFilename);
-        
-        //Create Digital Certificate
+
+        // Create Digital Certificate
         DigitalCertificate digitalCertificate = new DigitalCertificate(COMPANY_NAME, COMPANY_DOMAIN_NAME, COMPANY_EMAIL, publicKey);
-        
-        //Message to sign
+
+        // Message to sign
         String message = DigitalSignature.readMessageFromFile(documentName);
         byte[] messageAsBytes = message.getBytes();
 
-		//Create digital signature 
-        byte[] signature = DigitalSignature.create(messageAsBytes, privateKey); 
-        
-        //Create the package
+        // Create digital signature
+        byte[] signature = DigitalSignature.create(messageAsBytes, privateKey);
+
+        // Create the package
         String digitalSignaturePackage = DigitalSignaturePackage.createPackage(message, signature, digitalCertificate);
 
         return digitalSignaturePackage;

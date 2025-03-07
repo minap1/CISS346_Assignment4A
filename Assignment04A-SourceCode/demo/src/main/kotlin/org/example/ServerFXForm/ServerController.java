@@ -1,12 +1,13 @@
 package org.example.ServerFXForm;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.text.TextFlow;
 import org.example.Server;
-
+import com.sun.javafx.application.PlatformImpl;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
@@ -17,8 +18,8 @@ public class ServerController {
 
     private boolean running = false;
     private boolean isLinked = false;
-    private final PipedOutputStream serverInput = new PipedOutputStream();
-    private final PipedInputStream serverOutput = new PipedInputStream();
+    private  PipedOutputStream serverInput;
+    private  PipedInputStream serverOutput;
     private Server server;
     @FXML public TextArea sOutput;
     @FXML public TextField portnum;
@@ -28,11 +29,8 @@ public class ServerController {
 
     @FXML
     public void onStartClicked(javafx.event.ActionEvent actionEvent) throws IOException {
-        if(!isLinked){
-            isLinked = true;
-            serverOutput.connect(serverInput);
-            //serverInput.connect(serverOutput);
-        }
+        serverInput = new PipedOutputStream();
+        serverOutput = new PipedInputStream(serverInput);
         server = new Server(0, serverInput);
         int port = 0;
         if(!portnum.getText().isEmpty()){
@@ -42,22 +40,31 @@ public class ServerController {
             server.setPort(50444);
         }
         server.start();
-
+        streamServerOutput(serverOutput);
         running = true;
     }
 
     /* by far the hardest thing to do, get a stream from the server, pipe to textarea, have text are output live */
     @FXML
-    public void streamServerOutput() throws IOException {
-        byte[] array;
-        String writeable;
-        while(running){
-          if(serverOutput.available() > 0){
-                array = serverOutput.readAllBytes();
-                writeable = new String(array);
-                sOutput.appendText(writeable);
+    public void streamServerOutput(PipedInputStream readme) throws IOException {
+        Thread thread = new Thread(() -> {
+            System.out.println("streamServerOutput");
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            while (running) {
+                try {
+                    while ((bytesRead = readme.read(buffer)) != -1) {
+                        String writeable = new String(buffer, 0, bytesRead);
+                        System.out.println(writeable);
+                        String finalWriteable = writeable;
+                        Platform.runLater(() -> sOutput.appendText(finalWriteable));
+                    }
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
-        }
+        });
+        thread.start();
     }
 
     @FXML
@@ -66,7 +73,7 @@ public class ServerController {
             server.stopThread();
             server.join();
         }else{
-            streamServerOutput();
+            //TODO FIGURE OUT HOW TO PUT ERROR IN TEXTBOX
         }
     }
 }
