@@ -1,4 +1,9 @@
-package org.example;
+package org.example;/*
+ * Parker Mina
+ * 1/28/2025
+ * Opens a connection to a Server and sends encrypted messages and receives encrypted messages
+ * with sendMessage and getMessage respectively.
+*/
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -19,36 +24,27 @@ public class MessengerClient
         this.port = port;
     }
 
-    public String sendMessage(String messageType)
+    //Sends a message to the Server script. Takes given parameters messageType, priority, and encryptedMessage.
+    //These get sent to the Server sepertaed by new line characters.
+    //Then it reads the response from the Server and returns it as a String.
+    public String sendMessage(String messageType, String priority, String encryptedMessage)
     {
         String serverResponse = null;
 
         try 
         {
-            StringBuilder stringBuilder = new StringBuilder();
-
-            stringBuilder.append(messageType);
-            stringBuilder.append(System.lineSeparator());
-
-            String packet = stringBuilder.toString();
-
-            System.out.println();
-            System.out.println("Connecting to server...");
-            String address = inetAddress.getHostAddress();
-            Socket socket = new Socket(address, port);
-
-            System.out.println("Sending packet to remote server...");
+            System.out.println("\nConnecting to server...");
+            Socket socket = new Socket(inetAddress, port);
             OutputStream outputStream = socket.getOutputStream();
             PrintWriter printWriter = new PrintWriter(outputStream, true);
-            printWriter.println(packet);
-
-            System.out.println("Reading response from remote server...");
             InputStream inputStream = socket.getInputStream();
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-
-            serverResponse = getServerResponse(bufferedReader);
-
+            BufferedReader input = new BufferedReader(inputStreamReader);
+            
+            System.out.println("Sending packet to remote server...");
+            printWriter.println(messageType + "\n" + priority + "\n" + encryptedMessage);
+            System.out.println("Reading response from remote server...");
+            serverResponse = input.readLine() + "\n";
             socket.close();
         } 
         catch (Exception ex)
@@ -61,21 +57,35 @@ public class MessengerClient
         return serverResponse;
     }
 
-    private static String getServerResponse(BufferedReader bufferedReader) throws Exception 
+    //Sends a message to the Server script. Takes given parameters messageType and priority.
+    //These get sent to the Server sepertaed by new line characters.
+    //Then it reads the response from the Server and returns it as a String.
+    public String getMessage(String messageType, String priority)
     {
-        StringBuilder stringBuilder = new StringBuilder();
+        String serverResponse = null;
 
-        String fileline = bufferedReader.readLine();
-        
-        while (fileline != null)
+        try 
         {
-            stringBuilder.append(fileline + "\n");
-
-            fileline = bufferedReader.readLine();
+            System.out.println("\nConnecting to server...");
+            Socket socket = new Socket(inetAddress, port);
+            OutputStream outputStream = socket.getOutputStream();
+            PrintWriter printWriter = new PrintWriter(outputStream, true);
+            InputStream inputStream = socket.getInputStream();
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+            BufferedReader input = new BufferedReader(inputStreamReader);
+            
+            System.out.println("Sending packet to remote server...");
+            printWriter.println(messageType + "\n" + priority);
+            System.out.println("Reading response from remote server...");
+            serverResponse = input.readLine();
+            socket.close();
+        } 
+        catch (Exception ex)
+        {
+            String message = ex.getMessage();
+            System.out.println(message);
         }
-        
-        String fileContent = stringBuilder.toString();
-
-        return fileContent;
+       
+        return serverResponse;
     }
 }

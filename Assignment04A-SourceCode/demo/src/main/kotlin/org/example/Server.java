@@ -13,7 +13,15 @@ public class Server extends Thread {
     private int port;
     private volatile boolean running = true;
     private PipedOutputStream WRITEHERE = null;
+    static final String NO_PRIORITY_1_MESSAGES = "NO_PRIORITY_1_MESSAGES";
+    static final String NO_PRIORITY_2_MESSAGES = "NO_PRIORITY_2_MESSAGES";
+    static final String NO_PRIORITY_3_MESSAGES = "NO_PRIORITY_3_MESSAGES";
+    static final String PRODUCE_MESSAGE_STRING = "PRODUCE_MESSAGE";
+    static final String CONSUME_MESSAGE_STRING = "CONSUME_MESSAGE";
+    static final String PRODUCE_MESSAGE = "0";
+    static final String CONSUME_MESSAGE = "1";
 
+    static final String textFilename = "EncryptedMessages.txt";
     public Server(int port) {
         this.port = port;
     }
@@ -41,6 +49,28 @@ public class Server extends Thread {
     }
 
     private void startServer(int port) throws Exception {
+
+
+        String publicKeyFilename = "public.key";
+        String privateKeyFilename = "private.key";
+        PublicKey publicKey;
+        PrivateKey privateKey;
+
+        // Read public key from file
+        try {
+            publicKey = RsaEncryptor.readPublicKeyFromFile(publicKeyFilename);
+        } catch (Exception e) {
+            WRITEHERE.write("Error reading public key from file\n".getBytes());
+            throw new RuntimeException(e);
+        }
+        // Read private key from file
+        try {
+            privateKey = RsaEncryptor.readPrivateKeyFromFile(privateKeyFilename);
+        } catch (Exception e) {
+            WRITEHERE.write("Error reading private key from file\n".getBytes());
+            throw new RuntimeException(e);
+        }
+
         WRITEHERE.write(("Attempting to server on port " + port + "...\n").getBytes());
 
         ServerSocket serverSocket = new ServerSocket(port, 0, InetAddress.getLoopbackAddress());
@@ -64,15 +94,36 @@ public class Server extends Thread {
                 OutputStream outputStream = clientSocket.getOutputStream();
                 PrintWriter printWriter = new PrintWriter(outputStream, true);
 
-                String documentName = bufferedReader.readLine();
+                String messageType = bufferedReader.readLine();
+                if (messageType.equals(PRODUCE_MESSAGE))
+                {
+                    System.out.println("Message type received: " + PRODUCE_MESSAGE_STRING);
+                    System.out.println();
 
-                WRITEHERE.write(("Document name received: " + documentName + "\n").getBytes());
+                    String priority = bufferedReader.readLine();
+                    String encryptedMessage = bufferedReader.readLine();
 
-                String digitalSignaturePackage = createDigitalSignaturePackage(documentName);
+                    Utilities.writeEncryptedMessageToFile(priority, encryptedMessage, textFilename);
 
-                WRITEHERE.write("Sending signed document...\n".getBytes());
+                    printWriter.println("Message type received: " + PRODUCE_MESSAGE_STRING);
+                }
+                else if (messageType.equals(CONSUME_MESSAGE))
+                {
+                    System.out.println("Message type received: " + CONSUME_MESSAGE_STRING);
+                    System.out.println();
 
-                printWriter.print(digitalSignaturePackage);
+                    String priority = bufferedReader.readLine();
+
+                    String consumedRecord = Utilities.consumeEncryptedMessageFromFile(priority, textFilename);
+
+                    printWriter.println(consumedRecord);
+                }
+                else System.out.println("INVALID MESSAGE TYPE: " + messageType);
+                printWriter.close();
+                bufferedReader.close();
+                clientSocket.close();
+
+                //printWriter.print(digitalSignaturePackage);
 
                 printWriter.close();
                 bufferedReader.close();
@@ -88,32 +139,25 @@ public class Server extends Thread {
         serverSocket.close();
     }
 
-    private String createDigitalSignaturePackage(String documentName) throws Exception {
-        final String COMPANY_NAME = "Never Crash Software Services";
-        final String COMPANY_DOMAIN_NAME = "NCSS.com";
-        final String COMPANY_EMAIL = "support@ncss.com";
-        String publicKeyFilename = "public.key";
-        String privateKeyFilename = "private.key";
-
-        // Read public key from file
-        PublicKey publicKey = RsaEncryptor.readPublicKeyFromFile(publicKeyFilename);
-
-        // Read private key from file
-        PrivateKey privateKey = RsaEncryptor.readPrivateKeyFromFile(privateKeyFilename);
-
-        // Create Digital Certificate
-        DigitalCertificate digitalCertificate = new DigitalCertificate(COMPANY_NAME, COMPANY_DOMAIN_NAME, COMPANY_EMAIL, publicKey);
-
-        // Message to sign
-        String message = DigitalSignature.readMessageFromFile(documentName);
-        byte[] messageAsBytes = message.getBytes();
-
-        // Create digital signature
-        byte[] signature = DigitalSignature.create(messageAsBytes, privateKey);
-
-        // Create the package
-        String digitalSignaturePackage = DigitalSignaturePackage.createPackage(message, signature, digitalCertificate);
-
-        return digitalSignaturePackage;
-    }
+//    private String createDigitalSignaturePackage(String documentName) throws Exception {
+//        final String COMPANY_NAME = "Never Crash Software Services";
+//        final String COMPANY_DOMAIN_NAME = "NCSS.com";
+//        final String COMPANY_EMAIL = "support@ncss.com";
+//
+//
+//        // Create Digital Certificate
+//        DigitalCertificate digitalCertificate = new DigitalCertificate(COMPANY_NAME, COMPANY_DOMAIN_NAME, COMPANY_EMAIL, publicKey);
+//
+//        // Message to sign
+//        String message = DigitalSignature.readMessageFromFile(documentName);
+//        byte[] messageAsBytes = message.getBytes();
+//
+//        // Create digital signature
+//        byte[] signature = DigitalSignature.create(messageAsBytes, privateKey);
+//
+//        // Create the package
+//        String digitalSignaturePackage = DigitalSignaturePackage.createPackage(message, signature, digitalCertificate);
+//
+//        return digitalSignaturePackage;
+//    }
 }

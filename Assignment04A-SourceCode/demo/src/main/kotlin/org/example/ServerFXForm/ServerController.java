@@ -3,6 +3,7 @@ package org.example.ServerFXForm;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.text.TextFlow;
@@ -16,10 +17,11 @@ import java.io.PipedOutputStream;
 
 public class ServerController {
 
-    private boolean running = false;
-    private boolean isLinked = false;
-    private  PipedOutputStream serverInput;
-    private  PipedInputStream serverOutput;
+    @FXML public RadioButton all;
+    @FXML private boolean running = false;
+    @FXML private boolean isLinked = false;
+    @FXML private  PipedOutputStream serverInput;
+    @FXML private  PipedInputStream serverOutput;
     private Server server;
     @FXML public TextArea sOutput;
     @FXML public TextField portnum;
