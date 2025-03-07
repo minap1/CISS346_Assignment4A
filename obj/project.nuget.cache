@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Zd1xQ84LNlA=",
+  "dgSpecHash": "XZQsq5QjAm350DKuM5/AIB9WkWpdRZywFc03NokZY2D+qKkj2wuAhhi0+WNakk1rhIY/G6g9PbIiB9ZsfoMCIg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Eric\\Documents\\CISS346_Assignment4A\\CISS346_Assignment4A.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Eric\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.26100.57\\microsoft.windows.sdk.net.ref.10.0.26100.57.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\toklo\\OneDrive\\Documents\\Computer Science Classes\\CISS 346\\Assignments\\CISS346_Assignment4A\\CISS346_Assignment4A.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }
