@@ -134,7 +134,8 @@ public class Server extends Thread {
                 WRITEHERE.write(("File not found...try checking your directories, aborting send\n").getBytes());
             }
         }
-
+//write something too
+//a random change
         WRITEHERE.write("Server stopped! Exiting the process\n".getBytes());
         serverSocket.close();
     }
