@@ -1,4 +1,5 @@
-package org.example;/*
+package org.example;
+/*
  * Parker Mina
  * 1/28/2025
  * The following program contains methods for use in Program and helper methods for those methods. 
@@ -7,9 +8,12 @@ package org.example;/*
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.PipedOutputStream;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Utilities 
@@ -30,16 +34,25 @@ public class Utilities
         writer.close();
     }
 
-    static String getLatestMessage(){
-        return "";
-    }
-
-    static String getLatestMessageofPriority(String priority){
-        return null;
-    }
-
-    static ArrayList<String> getAllMessagesofPriorty(String priority){
-        return null;
+    static ArrayList<String> getAllMessagesofPriorty(String priority) throws Exception
+    {
+        File file = new File("EncryptedMessages");
+        Scanner lineReader = new Scanner(file);
+        StringBuilder newFileContent = new StringBuilder();
+        String curr_date = "";
+        String curr_priority = "";
+        String curr_message = "";
+        while(lineReader.hasNext()) {
+            curr_date = lineReader.next();
+            curr_priority = lineReader.next();
+            curr_message = lineReader.next();
+            if(curr_priority.equals(priority)) {
+                newFileContent.append(curr_date + "\n" + curr_priority + "\n" + curr_message + "\n\n");
+            }
+        }
+        lineReader.close();
+        String output = newFileContent.toString();
+        return new ArrayList<>(Arrays.asList(output));
     }
 
 
