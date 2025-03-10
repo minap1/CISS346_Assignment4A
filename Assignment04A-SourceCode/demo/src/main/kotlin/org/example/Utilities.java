@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Utilities 
@@ -28,6 +29,20 @@ public class Utilities
         writer.write(getDateTimeStamp() + "\n" + priority + "\n" + encryptedMessage);
         writer.close();
     }
+
+    static String getLatestMessage(){
+        return "";
+    }
+
+    static String getLatestMessageofPriority(String priority){
+        return null;
+    }
+
+    static ArrayList<String> getAllMessagesofPriorty(String priority){
+        return null;
+    }
+
+
 
     /*
      * For every record in provided file, method checks its priority against the requested priority, 

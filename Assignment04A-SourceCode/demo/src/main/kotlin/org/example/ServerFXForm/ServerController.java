@@ -2,15 +2,11 @@ package org.example.ServerFXForm;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.text.TextFlow;
 import org.example.Server;
-import com.sun.javafx.application.PlatformImpl;
-import java.awt.*;
-import java.awt.event.ActionEvent;
+
 import java.io.IOException;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
@@ -61,7 +57,8 @@ public class ServerController {
                         String finalWriteable = writeable;
                         Platform.runLater(() -> sOutput.appendText(finalWriteable));
                     }
-                } catch (IOException e) {
+                } catch (Exception e) {
+
                     throw new RuntimeException(e);
                 }
             }

@@ -152,7 +152,6 @@ class RsaEncryptor
 
         return encryptedMessage;
     }
-
     //Encrypt using public key
     public static byte[] encryptMessageAsBytes(String message, PublicKey publicKey) throws Exception 
     {
