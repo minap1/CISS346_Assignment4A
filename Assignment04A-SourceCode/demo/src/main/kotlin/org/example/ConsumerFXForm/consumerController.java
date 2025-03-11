@@ -1,4 +1,8 @@
 package org.example.ConsumerFXForm;
+import java.net.InetAddress;
+
+import org.example.MessengerClient;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;
@@ -9,46 +13,53 @@ import javafx.scene.control.ToggleGroup;
 public class consumerController {
     @FXML public RadioButton low;
     @FXML public RadioButton medium;
-    @FXML public RadioButton latest;
     @FXML public RadioButton high;
-    @FXML public RadioButton consume;
-    @FXML public RadioButton priority;
     @FXML public TextArea reply;
     @FXML public TextField address;
-    @FXML public TextField port;
+    @FXML public TextField portnum;
 
     private ToggleGroup priorityGroup = new ToggleGroup();
-    private ToggleGroup retrieveGroup = new ToggleGroup();
+
+    private MessengerClient consumer;
+
     @FXML
     public void initialize() {
         low.setToggleGroup(priorityGroup);
         medium.setToggleGroup(priorityGroup);
         high.setToggleGroup(priorityGroup);
-        consume.setToggleGroup(retrieveGroup);
-        priority.setToggleGroup(retrieveGroup);
-        latest.setToggleGroup(retrieveGroup);
+        consumer = new MessengerClient();
     }
+    @FXML
     public void retrieve(ActionEvent actionEvent) {
         String priority;
         if (low.isSelected()) {
-            priority = "low";
+            priority = "Low";
         }else if (medium.isSelected()) {
-            priority = "medium";
+            priority = "Medium";
         }else if (high.isSelected()) {
-            priority = "high";
+            priority = "High";
         }else{
+            priority = "Low";
             //throw an error---pop-up
         }
-        /*
-        pull from address
-        if empty localhost
-
-        pull from port
-        if empty- 50444
-
-        send the message
-
-
-         */
+        InetAddress add = null;
+        try {
+            if(!address.getText().isEmpty()){
+                add = InetAddress.getByName(this.address.getText());
+            }else{
+                add = InetAddress.getLoopbackAddress();
+            }
+        }
+        catch (Exception e) {
+            reply.setText(e.getMessage());
+            return;
+        }
+        int port;
+        if(!portnum.getText().isEmpty()){
+            port = Integer.parseInt(portnum.getText());
+        }else{
+            port = 50444;
+        }
+        reply.setText(consumer.getMessage("1", priority, add, port));
     }
 }
