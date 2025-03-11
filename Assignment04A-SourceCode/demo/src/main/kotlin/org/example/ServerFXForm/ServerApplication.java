@@ -14,7 +14,7 @@ public class ServerApplication extends Application {
 
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/FXML/ServerForm.fxml"));
         Scene s = new Scene(fxmlLoader.load());
-        primaryStage.setTitle("Server FX Form");
+        primaryStage.setTitle("Server");
         primaryStage.setScene(s);
         primaryStage.show();
     }

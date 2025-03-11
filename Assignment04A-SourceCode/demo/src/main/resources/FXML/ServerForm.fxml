@@ -16,17 +16,17 @@
       <TextField layoutX="103.0" layoutY="14.0" prefHeight="25.0" prefWidth="301.0" promptText="Default: localhost" />
       <TextArea layoutX="418.0" layoutY="154.0" prefHeight="230.0" prefWidth="384.0" promptText="Retrieved messages will be displayed here" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="95.0" layoutX="423.0" layoutY="58.0" stroke="BLACK" strokeType="INSIDE" width="301.0" />
-      <RadioButton layoutX="435.0" layoutY="117.0" mnemonicParsing="false" text="All" fx:id="all" />
-      <RadioButton layoutX="481.0" layoutY="117.0" mnemonicParsing="false" text="Low" fx:id="low"/>
-      <RadioButton layoutX="540.0" layoutY="117.0" mnemonicParsing="false" text="Medium" fx:id="med"/>
-      <RadioButton layoutX="610.0" layoutY="117.0" mnemonicParsing="false" text="High" fx:id="high"/>
-      <RadioButton layoutX="666.0" layoutY="117.0" mnemonicParsing="false" text="Latest" fx:id="latest" />
+      <CheckBox fx:id="all" layoutX="437.0" layoutY="109.0" mnemonicParsing="false" text="All Messages of type" />
+      <RadioButton fx:id="low" layoutX="435.0" layoutY="129.0" mnemonicParsing="false" text="Low" />
+      <RadioButton fx:id="med" layoutX="484.0" layoutY="129.0" mnemonicParsing="false" text="Medium" />
+      <RadioButton fx:id="high" layoutX="559.0" layoutY="129.0" mnemonicParsing="false" text="High" />
+      <RadioButton fx:id="latest" layoutX="613.0" layoutY="129.0" mnemonicParsing="false" text="Latest" />
       <Label layoutX="444.0" layoutY="10.0" text="Last message recieved:" />
-      <TextField layoutX="485.0" layoutY="27.0" prefHeight="17.0" prefWidth="121.0" />
+      <TextField fx:id="type" layoutX="485.0" layoutY="27.0" prefHeight="17.0" prefWidth="121.0" />
       <Label layoutX="456.0" layoutY="31.0" text="Type:" />
       <Label layoutX="619.0" layoutY="31.0" text="Priority:" />
-      <TextField layoutX="666.0" layoutY="26.0" prefHeight="25.0" prefWidth="114.0" />
-      <Button layoutX="435.0" layoutY="67.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="164.0" text="Show Messages" />
+      <TextField fx:id="priority" layoutX="666.0" layoutY="26.0" prefHeight="25.0" prefWidth="114.0" />
+      <Button layoutX="435.0" layoutY="67.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="164.0" text="Retrieve Message" onAction="#onMessageClick" />
       <Button layoutX="624.0" layoutY="74.0" mnemonicParsing="false" text="Clear display" />
    </children>
 </AnchorPane>

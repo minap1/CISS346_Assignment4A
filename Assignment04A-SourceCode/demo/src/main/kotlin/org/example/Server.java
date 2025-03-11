@@ -72,12 +72,18 @@ public class Server extends Thread {
         }
 
         WRITEHERE.write(("Attempting to server on port " + port + "...\n").getBytes());
+        ServerSocket serverSocket;
+        try {
+            serverSocket = new ServerSocket(port, 0, InetAddress.getLoopbackAddress());
+            serverSocket.setSoTimeout(1000);
+            serverSocket.setReuseAddress(true);
+            WRITEHERE.write("Server creation successful!\n".getBytes());
+            WRITEHERE.write("Waiting for the client connection...\n".getBytes());
+        } catch (Exception e) {
+            WRITEHERE.write(("Server creation failed: " + e.getLocalizedMessage() + "\n").getBytes());
+            throw new RuntimeException(e);
+        }
 
-        ServerSocket serverSocket = new ServerSocket(port, 0, InetAddress.getLoopbackAddress());
-        serverSocket.setSoTimeout(1000);
-        serverSocket.setReuseAddress(true);
-        WRITEHERE.write("Server creation successful!\n".getBytes());
-        WRITEHERE.write("Waiting for the client connection...\n".getBytes());
 
         while (running) {
             try {
@@ -97,13 +103,16 @@ public class Server extends Thread {
                 String messageType = bufferedReader.readLine();
                 if (messageType.equals(PRODUCE_MESSAGE))
                 {
-                    System.out.println("Message type received: " + PRODUCE_MESSAGE_STRING);
-                    System.out.println();
-
+                    WRITEHERE.write(("Message type received: " + PRODUCE_MESSAGE_STRING).getBytes());
                     String priority = bufferedReader.readLine();
                     String encryptedMessage = bufferedReader.readLine();
-
-                    Utilities.writeEncryptedMessageToFile(priority, encryptedMessage, textFilename);
+                    WRITEHERE.write(priority.getBytes());
+                    WRITEHERE.write((" priority from " + hostAddress + ": " + RsaEncryptor.decryptMessageAsString(encryptedMessage,privateKey) + "\n").getBytes());
+                    try {
+                        Utilities.writeEncryptedMessageToFile(priority, encryptedMessage, textFilename);
+                    } catch (Exception e) {
+                        WRITEHERE.write("Error logging to file\n".getBytes());
+                    }
 
                     printWriter.println("Message type received: " + PRODUCE_MESSAGE_STRING);
                 }

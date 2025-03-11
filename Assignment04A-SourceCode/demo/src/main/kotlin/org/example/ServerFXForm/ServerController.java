@@ -1,19 +1,26 @@
 package org.example.ServerFXForm;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import org.example.Server;
-
 import java.io.IOException;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
 
 public class ServerController {
 
-    @FXML public RadioButton all;
+    @FXML public CheckBox all;
+    public TextField type;
+    public TextField priority;
+    public RadioButton low;
+    public RadioButton med;
+    public RadioButton high;
+    public RadioButton latest;
     @FXML private boolean running = false;
     @FXML private boolean isLinked = false;
     @FXML private  PipedOutputStream serverInput;
@@ -21,7 +28,8 @@ public class ServerController {
     private Server server;
     @FXML public TextArea sOutput;
     @FXML public TextField portnum;
-
+    static final String PRODUCE_MESSAGE_STRING = "PRODUCE_MESSAGE";
+    static final String CONSUME_MESSAGE_STRING = "CONSUME_MESSAGE";
     public ServerController() throws IOException {
     }
 
@@ -51,11 +59,28 @@ public class ServerController {
             int bytesRead;
             while (running) {
                 try {
+                    String type = "";
+                    String priority = "";
+                    Boolean messageGet = false;
                     while ((bytesRead = readme.read(buffer)) != -1) {
+                        type = "";
+                        priority = "";
                         String writeable = new String(buffer, 0, bytesRead);
+                        if(messageGet){
+                            priority = writeable;
+                            messageGet = false;
+                        }else if(writeable.contains(PRODUCE_MESSAGE_STRING)){
+                            type = "PRODUCE";
+                            messageGet = true;
+                        } else if (writeable.contains(CONSUME_MESSAGE_STRING)) {
+                            type = "CONSUME";
+                            messageGet = true;
+                        }
                         System.out.println(writeable);
-                        String finalWriteable = writeable;
-                        Platform.runLater(() -> sOutput.appendText(finalWriteable));
+                        Platform.runLater(() -> sOutput.appendText(writeable));
+
+                        if (!type.isEmpty()) Platform.runLater(() -> this.type.setText(writeable));
+                        if (!priority.isEmpty()) Platform.runLater(() -> this.priority.setText(writeable));
                     }
                 } catch (Exception e) {
 
@@ -74,5 +99,8 @@ public class ServerController {
         }else{
             sOutput.appendText("No server running.\n");
         }
+    }
+    @FXML
+    public void onMessageClick(ActionEvent actionEvent) {
     }
 }
