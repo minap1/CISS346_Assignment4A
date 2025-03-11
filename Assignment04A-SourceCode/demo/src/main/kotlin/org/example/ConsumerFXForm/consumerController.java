@@ -29,17 +29,26 @@ public class consumerController {
         latest.setToggleGroup(retrieveGroup);
     }
     public void retrieve(ActionEvent actionEvent) {
-        int pritority;
-        int retrieveType;
-
+        String priority;
         if (low.isSelected()) {
-
+            priority = "low";
         }else if (medium.isSelected()) {
-
+            priority = "medium";
         }else if (high.isSelected()) {
-
+            priority = "high";
         }else{
-
+            //throw an error---pop-up
         }
+        /*
+        pull from address
+        if empty localhost
+
+        pull from port
+        if empty- 50444
+
+        send the message
+
+
+         */
     }
 }

@@ -15,19 +15,10 @@ import java.net.Socket;
 
 public class MessengerClient
 {
-    private InetAddress inetAddress;
-    private int port;
-
-    public MessengerClient(InetAddress inetAddress, int port)
-    {
-        this.inetAddress = inetAddress;
-        this.port = port;
-    }
-
     //Sends a message to the Server script. Takes given parameters messageType, priority, and encryptedMessage.
     //These get sent to the Server sepertaed by new line characters.
     //Then it reads the response from the Server and returns it as a String.
-    public String sendMessage(String messageType, String priority, String encryptedMessage)
+    public String sendMessage(String messageType, String priority, String encryptedMessage,InetAddress inetAddress, int port)
     {
         String serverResponse = null;
 
@@ -60,7 +51,7 @@ public class MessengerClient
     //Sends a message to the Server script. Takes given parameters messageType and priority.
     //These get sent to the Server sepertaed by new line characters.
     //Then it reads the response from the Server and returns it as a String.
-    public String getMessage(String messageType, String priority)
+    public String getMessage(String messageType, String priority ,InetAddress inetAddress, int port )
     {
         String serverResponse = null;
 
