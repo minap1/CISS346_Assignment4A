@@ -1,6 +1,8 @@
 package org.example.ProducerFXForm;
 
 import java.net.InetAddress;
+import java.security.PrivateKey;
+import java.security.PublicKey;
 
 import org.example.MessengerClient;
 
@@ -9,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import org.example.RsaEncryptor;
 
 public class producerController {
 
@@ -28,15 +31,27 @@ public class producerController {
 
     private MessengerClient producer;
 
+    String publicKeyFilename = "public.key";
+        PublicKey publicKey;
+
+        
+
     @FXML
     public void initialize() {
         low.setToggleGroup(group);
         medium.setToggleGroup(group);
         high.setToggleGroup(group);
         producer = new MessengerClient();
+        // Read public key from file
+        try {
+            publicKey = RsaEncryptor.readPublicKeyFromFile(publicKeyFilename);
+        } catch (Exception e) {
+            System.out.println("Error reading public key from file\n".getBytes());
+            throw new RuntimeException(e);
+        }
     }
     @FXML
-    public void send(ActionEvent actionEvent) {
+    public void send(ActionEvent actionEvent) throws Exception {
         String priority;
         if (low.isSelected()) {
             priority = "Low";
@@ -66,6 +81,8 @@ public class producerController {
         }else{
             port = 50444;
         }
-        reply.setText(producer.sendMessage("1", priority, input.getText(), add, port));
+        String encryptedString = "";
+        encryptedString = RsaEncryptor.encryptMessageAsString(input.getText(), publicKey);
+        reply.setText(producer.sendMessage("0", priority, encryptedString, add, port));
     }
 }

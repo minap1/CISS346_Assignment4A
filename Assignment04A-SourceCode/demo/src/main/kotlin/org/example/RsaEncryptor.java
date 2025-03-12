@@ -16,7 +16,7 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
 import javax.crypto.Cipher;
 
-class RsaEncryptor
+public class RsaEncryptor
 {
     //Generates keypairs for the RSA algorithm (Signature/Cipher).
     private static final String ENCRYPTION_ALGORITHM = "RSA";
@@ -69,7 +69,7 @@ class RsaEncryptor
         writeBytesToFile(encodedKey, filename);
     }
 
-    static PublicKey readPublicKeyFromFile(String filename) throws Exception
+    public static PublicKey readPublicKeyFromFile(String filename) throws Exception
     {
         byte[] keyBytes = readBytesFromFile(filename);
 
@@ -78,7 +78,7 @@ class RsaEncryptor
         return publicKey;
     }
 
-    static PrivateKey readPrivateKeyFromFile(String filename) throws Exception
+    public static PrivateKey readPrivateKeyFromFile(String filename) throws Exception
     {
         byte[] keyBytes = readBytesFromFile(filename);
         
