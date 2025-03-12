@@ -66,6 +66,6 @@ public class producerController {
         }else{
             port = 50444;
         }
-        reply.setText(producer.getMessage("1", priority, add, port));
+        reply.setText(producer.sendMessage("1", priority, input.getText(), add, port));
     }
 }
