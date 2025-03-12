@@ -8,12 +8,10 @@ package org.example;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.io.PipedOutputStream;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class Utilities 
@@ -34,9 +32,9 @@ public class Utilities
         writer.close();
     }
 
-    static ArrayList<String> getAllMessagesofPriorty(String priority) throws Exception
+    public static ArrayList<String> getAllMessagesofPriorty(String priority, String filename) throws Exception
     {
-        File file = new File("EncryptedMessages");
+        File file = new File(filename);
         Scanner lineReader = new Scanner(file);
         StringBuilder newFileContent = new StringBuilder();
         String curr_date = "";
@@ -66,7 +64,7 @@ public class Utilities
      * the StringBuilder overwrites the file contents without including the desired record and 
      * the desired record is returned as a String.
      */
-    static String consumeEncryptedMessageFromFile(String messagePriority, String filename) throws Exception
+    public static String consumeEncryptedMessageFromFile(String messagePriority, String filename) throws Exception
     {
         File file = new File(filename);
         Scanner lineReader = new Scanner(file);

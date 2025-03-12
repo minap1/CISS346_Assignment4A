@@ -8,9 +8,12 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import org.example.Server;
+import org.example.Utilities;
+
 import java.io.IOException;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
+import java.util.ArrayList;
 
 public class ServerController {
 
@@ -21,6 +24,7 @@ public class ServerController {
     public RadioButton med;
     public RadioButton high;
     public RadioButton latest;
+    public TextArea mOutput;
     @FXML private boolean running = false;
     @FXML private boolean isLinked = false;
     @FXML private  PipedOutputStream serverInput;
@@ -30,6 +34,7 @@ public class ServerController {
     @FXML public TextField portnum;
     static final String PRODUCE_MESSAGE_STRING = "PRODUCE_MESSAGE";
     static final String CONSUME_MESSAGE_STRING = "CONSUME_MESSAGE";
+    private ArrayList<String> messageList;
     public ServerController() throws IOException {
     }
 
@@ -101,6 +106,23 @@ public class ServerController {
         }
     }
     @FXML
-    public void onMessageClick(ActionEvent actionEvent) {
+    public void onMessageClick(ActionEvent actionEvent) throws Exception {
+        String priority = "";
+        String type = "";
+        if(low.isSelected()){
+            priority = "low";
+        } else if (med.isSelected()) {
+            priority = "medium";
+        } else if (high.isSelected()) {
+            priority = "high";
+        }
+        if(all.isSelected()){
+            ArrayList<String> li = Utilities.getAllMessagesofPriorty(priority, "EncryptedMessages.txt");
+            messageList = li;
+            mOutput.setText(messageList.getFirst());
+        }else{
+            type = Utilities.consumeEncryptedMessageFromFile(priority, "EncryptedMessages.txt");
+            mOutput.setText(type);
+        }
     }
 }

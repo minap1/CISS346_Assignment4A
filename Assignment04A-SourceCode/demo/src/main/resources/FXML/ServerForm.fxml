@@ -14,7 +14,7 @@
       <TextArea fx:id="sOutput" editable="false" layoutX="14.0" layoutY="154.0" prefHeight="236.0" prefWidth="392.0" />
       <Label layoutX="15.0" layoutY="18.0" prefHeight="17.0" prefWidth="88.0" text="Server Address:" />
       <TextField layoutX="103.0" layoutY="14.0" prefHeight="25.0" prefWidth="301.0" promptText="Default: localhost" />
-      <TextArea layoutX="418.0" layoutY="154.0" prefHeight="230.0" prefWidth="384.0" promptText="Retrieved messages will be displayed here" />
+      <TextArea fx:id="mOutput" layoutX="418.0" layoutY="154.0" prefHeight="230.0" prefWidth="384.0" promptText="Retrieved messages will be displayed here" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="95.0" layoutX="423.0" layoutY="58.0" stroke="BLACK" strokeType="INSIDE" width="301.0" />
       <CheckBox fx:id="all" layoutX="437.0" layoutY="109.0" mnemonicParsing="false" text="All Messages of type" />
       <RadioButton fx:id="low" layoutX="435.0" layoutY="129.0" mnemonicParsing="false" text="Low" />
